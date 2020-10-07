@@ -1,0 +1,8 @@
+btc:
+  database:
+    host: localhost
+    port: 32970
+    name: postgres
+    schema: btc
+    username: docker
+    password: docker

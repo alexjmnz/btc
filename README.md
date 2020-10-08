@@ -73,3 +73,7 @@ Response body
   }
 ]
 ```
+
+**Note**: To run the app this command can be used
+`DB_PORT= DB_HOST= DB_NAME= DB_USERNAME= DB_PASSWORD= ./gradlew botRun`
+Please provide valid values for the database connection.

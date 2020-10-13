@@ -75,5 +75,38 @@ Response body
 ```
 
 **Note**: To run the app this command can be used
-`DB_PORT= DB_HOST= DB_NAME= DB_USERNAME= DB_PASSWORD= ./gradlew botRun`
+`DB_PORT=<port> DB_HOST=<host> DB_NAME=<database_name> DB_USERNAME=<username> DB_PASSWORD=<password> ./gradlew botRun`
 Please provide valid values for the database connection.
+
+### Example:
+After the register of these transactions:
+```json
+{
+  "datetime": "2020-10-13T00:00:00+07:00",
+  "amount": 1.0
+}
+
+{
+  "datetime": "2020-10-13T01:00:00+07:00",
+  "amount": 1.0
+}
+
+{
+  "datetime": "2020-10-13T02:00:00+07:00",
+  "amount": 1.0
+}
+
+```
+
+Then a request to fetch history between datetimes: 2020-10-13T02:00:00+07:00 and 2020-10-13T03:00:00+07:00
+http://localhost:8080/api/v1/btc/transactions?startDatetime=2020-10-13T02%3A00%3A00%2B07%3A00&endDatetime=2020-10-13T03%3A00%3A00%2B07%3A00
+
+Response:
+```json
+[
+  {
+    "datetime":"2020-10-12T14:00:00",
+    "amount":3.0,
+  }
+]
+```

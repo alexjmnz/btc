@@ -11,7 +11,7 @@ Test Project for Back-end Engineer (Kotlin)
 
 ### Database
 
-Run the sql script to create database components. There are two scripts, both wil work but you can select based on throughput of writes and reads. 
+Run the sql script to create database components. There are two scripts, both will work but you can select based on throughput of writes and reads. 
 
 - Run ddl.sql if writes are the priority, higher throughput on the register transaction endpoint.
 - Run ddl-materialized-view.sql if reads have the priority, it means a higher throughput on fetching transactions endpoint.
@@ -79,7 +79,7 @@ Response body
 Please provide valid values for the database connection.
 
 ### Example:
-After the register of these transactions:
+After register these transactions:
 ```json
 {
   "datetime": "2020-10-13T00:00:00+07:00",
@@ -105,8 +105,10 @@ Response:
 ```json
 [
   {
-    "datetime":"2020-10-12T14:00:00",
-    "amount":3.0,
+    "datetime": "2020-10-12T14:00:00",
+    "amount": 1,
+    "balance": 3
   }
 ]
 ```
+It retrieves the latest transaction with the amount of that specific transaction and the balance, balance is the sum of all previous transactions. It mean is the total accumulated at that point in time.

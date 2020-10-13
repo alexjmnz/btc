@@ -2,7 +2,7 @@ package com.test.btc.resource
 
 import com.test.btc.application.BtcTransactionApplicationService
 import com.test.btc.application.CreateBtcTransactionCommand
-import com.test.btc.application.FindTransactionsQuery
+import com.test.btc.application.FindHistoryQuery
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.*
@@ -22,5 +22,5 @@ class BtcResource(val service: BtcTransactionApplicationService) {
         MediaType.APPLICATION_JSON_VALUE,
         MediaType.APPLICATION_STREAM_JSON_VALUE
     ])
-    fun findTransactions(@Valid query: FindTransactionsQuery) = service.findTransactions(query)
+    fun findTransactions(@Valid query: FindHistoryQuery) = service.findTransactions(query)
 }

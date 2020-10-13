@@ -45,8 +45,8 @@ class IntegrationTest(@Autowired val client: WebTestClient) {
                 .expectStatus()
                 .isOk
                 .expectBody()
-                .jsonPath("[0].amount")
-                .isNumber
+                .jsonPath("[1].amount")
+                .isEqualTo(43)
     }
 
 }

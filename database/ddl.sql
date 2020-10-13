@@ -16,6 +16,5 @@ create view btc.btc_transaction_view as
   select
     id,
     datetime,
-    amount,
-    (select sum(amount) as balance from btc.btc_transaction where datetime < t.datetime or (datetime = t.datetime and id <= t.id))
+    (select sum(amount) as amount from btc.btc_transaction where datetime < t.datetime or (datetime = t.datetime and id <= t.id))
   from btc.btc_transaction t;

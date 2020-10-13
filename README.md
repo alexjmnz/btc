@@ -82,33 +82,45 @@ Please provide valid values for the database connection.
 After register these transactions:
 ```json
 {
-  "datetime": "2020-10-13T00:00:00+07:00",
+  "datetime": "2020-10-13T10:00:00+07:00",
   "amount": 1.0
 }
 
 {
-  "datetime": "2020-10-13T01:00:00+07:00",
+  "datetime": "2020-10-13T11:00:00+07:00",
   "amount": 1.0
 }
 
 {
-  "datetime": "2020-10-13T02:00:00+07:00",
+  "datetime": "2020-10-13T12:00:00+07:00",
+  "amount": 1.0
+}
+
+{
+  "datetime": "2020-10-13T12:10:00+07:00",
+  "amount": 1.0
+}
+
+{
+  "datetime": "2020-10-13T12:20:00+07:00",
   "amount": 1.0
 }
 
 ```
 
-Then a request to fetch history between datetimes: 2020-10-13T02:00:00+07:00 and 2020-10-13T03:00:00+07:00
-http://localhost:8080/api/v1/btc/transactions?startDatetime=2020-10-13T02%3A00%3A00%2B07%3A00&endDatetime=2020-10-13T03%3A00%3A00%2B07%3A00
+Then a request to fetch history between datetimes: 2020-10-13T11:00:00+07:00 and 2020-10-13T12:30:00+07:00
+http://localhost:8080/api/v1/btc/transactions?startDatetime=2020-10-13T11%3A00%3A00%2B07%3A00&endDatetime=2020-10-13T12%3A30%3A00%2B07%3A00
 
 Response:
 ```json
 [
   {
-    "datetime": "2020-10-12T14:00:00",
-    "amount": 1,
-    "balance": 3
+    "datetime":"2020-10-13T00:00:00",
+    "amount":5.0,
+  },
+  {
+    "datetime":"2020-10-12T23:00:00",
+    "amount":2.0,
   }
 ]
 ```
-It retrieves the latest transaction with the amount of that specific transaction and the balance, balance is the sum of all previous transactions. It mean is the total accumulated at that point in time.

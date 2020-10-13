@@ -5,7 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat
 import java.time.ZonedDateTime
 import javax.validation.constraints.NotNull
 
-data class FindTransactionsQuery(
+data class FindHistoryQuery(
         @field:NotNull(message = "startDatetime cannot be null")
         @DateTimeFormat(pattern = Constants.DATE_TIME_PATTERN)
         val startDatetime: ZonedDateTime,
